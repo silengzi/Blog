@@ -1,17 +1,15 @@
 <template>
   <div class="home">
-    <Header></Header>
     <img src="@/assets/imgs/lay.jpg" alt="">
+    <div class="empty"></div>
   </div>
 </template>
 
 <script>
-import Header from '@/components/header/Header.vue'
 
 export default {
   name: 'Home',
   components: {
-    Header
   }
 }
 </script>
@@ -21,5 +19,11 @@ export default {
     position: absolute;
     top: 0;
     z-index: -1;
+    width: 100%;
+    height: 100%;
+    margin-left: -5px;
+  }
+  .empty {
+    height: 884px;
   }
 </style>
