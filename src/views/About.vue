@@ -43,7 +43,7 @@ export default {
     }
     .img img{
         width: 100vw;
-        height: 50vh;
+        height: 100vh;
         position: absolute;
         top: 0;
         z-index: -1;

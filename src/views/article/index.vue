@@ -8,9 +8,10 @@
         <div class="img"><img :src="item.img" alt=""></div>
         <div class="desc">
             <div class="title">{{item.title}}</div>
-            <router-link to="article/detail">{{item.content}}</router-link>
+            <router-link to="/detail">{{item.content}}</router-link>
         </div>
     </div>
+    <router-view></router-view>
     <!-- <Detail></Detail> -->
   </div>
 </template>

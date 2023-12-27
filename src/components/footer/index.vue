@@ -25,8 +25,7 @@ export default {
         display: flex;
         justify-content: space-around;
         align-items: center;
-        width: 101%;
-        margin-left: -5px;
+        width: 100%;
         margin-top: 70px;
     }
 </style>

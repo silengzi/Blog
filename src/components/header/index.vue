@@ -32,16 +32,15 @@ export default {
 <style scoped lang="less">
     .top {
         background-color: #68656952;
-        margin-left: -5px;
-        width: 101%;
-        margin-top: -8px;
+        width: 100%;
     }
     .header {
         // width: 1200px;
-        // height: 52px;
+        height: 52px;
         // margin: 0 auto;
         // overflow: hidden;
         display: flex;
+        align-items: center;
         justify-content: space-around;
     }
     .logo, .nav {
@@ -49,8 +48,8 @@ export default {
     }
     .logo {
         // line-height: 52px;
-        display: flex;
-        align-items: center;
+        // display: flex;
+        // align-items: center;
     }
     .nav {
         width: 310px;
