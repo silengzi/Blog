@@ -176,6 +176,7 @@ export default {
   // border: 1px solid red;
   align-items: center;
   width: 100%;
+  padding-bottom: 20px;
   background-color: #dcd6d66c;
 }
 .articleList {
