@@ -18,13 +18,11 @@ const routes = [
     path: '/article',
     name: 'article',
     component: Article,
-    children: [
-    ]
   },
   {
     path: '/detail',
     name: 'detail',
-    component: Detail
+    component: Detail,
   },
 
   {

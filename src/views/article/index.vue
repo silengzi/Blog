@@ -1,26 +1,41 @@
 <template>
-  <div>
-    <div class="article"
+  <div class="article">
+    <div class="top-bg">
+      <img
+        class="img"
+        src="@/assets/imgs/article.jpg"
+        alt=""
+      >
+      <div class="mask"></div>
+      <div class="articleSort">
+        <div class="sort">春风得意马蹄疾，一日看尽长安花。</div>
+      </div>
+    </div>
+    <div class="article-content">
+      <div
+        class="articleList"
         v-for="(item, index) in articleList"
         :key="item.id"
-        
-    >
-        <div class="img"><img :src="item.img" alt=""></div>
+        @click="detail"
+      >
+        <div class="articleImg"><img
+            :src="item.img"
+            alt=""
+          ></div>
         <div class="desc">
-            <div class="title">{{item.title}}</div>
-            <router-link to="/detail">{{item.content}}</router-link>
+          <h3 class="title">{{item.title}}</h3>
+          <p class="content">{{item.content}}</p>
+          <p class="summary">{{item.summary}}</p>
+          <!-- <router-link to="/detail">{{item.content}}</router-link> -->
         </div>
+      </div>
     </div>
-    <router-view></router-view>
-    <!-- <Detail></Detail> -->
   </div>
 </template>
 
 <script>
-// import Detail from '@/views/article/detail/Detail.vue'
 
 export default {
-  // components: {Detail},
   name: '',
   data() {
     return {
@@ -28,44 +43,162 @@ export default {
     };
   },
   methods: {
-    /* detail() {
-      this.$router.push({name: 'detail'})
-    } */
+    detail() {
+      this.$router.push({
+        name: 'detail'
+      })
+    }
   },
   mounted() {
     this.articleList = [
       {
         title: '文章1',
         img: require('@/assets/imgs/article1.jpg'),
-        content: '这是文章1的内容'
+        content: '这是文章1的内容',
+        summary: '生活是一堆碎玻璃渣子里找糖。'
       },
       {
         title: '文章2',
         img: require('@/assets/imgs/article2.jpg'),
-        content: '这是文章2的内容'
+        content: '这是文章2的内容',
+        summary: '纵有疾风起，人生不言弃。'
+
+      },
+      {
+        title: '文章3',
+        img: require('@/assets/imgs/article1.jpg'),
+        content: '这是文章1的内容',
+        summary: '生活是一堆碎玻璃渣子里找糖。'
+      },
+      {
+        title: '文章4',
+        img: require('@/assets/imgs/article2.jpg'),
+        content: '这是文章2的内容',
+        summary: '纵有疾风起，人生不言弃。'
+
+      },
+      {
+        title: '文章5',
+        img: require('@/assets/imgs/article1.jpg'),
+        content: '这是文章1的内容',
+        summary: '生活是一堆碎玻璃渣子里找糖。'
+      },
+      {
+        title: '文章6',
+        img: require('@/assets/imgs/article2.jpg'),
+        content: '这是文章2的内容',
+        summary: '纵有疾风起，人生不言弃。'
+
+      },
+      {
+        title: '文章7',
+        img: require('@/assets/imgs/article1.jpg'),
+        content: '这是文章1的内容',
+        summary: '生活是一堆碎玻璃渣子里找糖。'
+      },
+      {
+        title: '文章8',
+        img: require('@/assets/imgs/article2.jpg'),
+        content: '这是文章2的内容',
+        summary: '纵有疾风起，人生不言弃。'
+
+      },
+      {
+        title: '文章9',
+        img: require('@/assets/imgs/article1.jpg'),
+        content: '这是文章1的内容',
+        summary: '生活是一堆碎玻璃渣子里找糖。'
+      },
+      {
+        title: '文章10',
+        img: require('@/assets/imgs/article2.jpg'),
+        content: '这是文章2的内容',
+        summary: '纵有疾风起，人生不言弃。'
 
       },
     ]
-    console.log(this.articleList)
+    // console.log(this.articleList)
   }
 };
 </script>
 
 <style scoped lang="less">
-    .article {
-        // display: flex;
-        // justify-content: center;
-        // margin: 0 auto;
-        margin-top: 100px;
-        // width: 1200px;
-        text-align: center;
-    }
-    .img img{
-        width: 600px;
-        height: 300px;
-    }
-    .desc {
-        text-align: left;
-        margin-left: 480px;
-    }
+.article {
+  // position: relative;
+}
+.article .top-bg {
+  position: relative;
+  z-index: -1;
+  width: 100%;
+  height: 50%;
+  margin-top: -52px;
+}
+.article .top-bg .img {
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  // z-index: -1;
+  // border: 1px solid;
+}
+.article .top-bg .mask {
+  width: 100%;
+  height: 50vh;
+  background-color: rgba(159, 156, 156, 0.2);
+  // z-index: -1;
+  position: absolute;
+}
+.article .top-bg .articleSort {
+  width: 100%;
+  // z-index: -1;
+  height: 50vh;
+  // display: flex;
+  // justify-content: space-around;
+  // align-items: center;
+  // margin-top: -52px;
+}
+.article .top-bg .articleSort .sort {
+  // border: 1px solid;
+  width: 400px;
+  height: 50px;
+  font-size: 25px;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -25px;
+  margin-left: -200px;
+}
+.article-content {
+  display: flex;
+  flex-direction: column;
+  // border: 1px solid red;
+  align-items: center;
+  width: 100%;
+  background-color: #dcd6d66c;
+}
+.articleList {
+  display: flex;
+  // justify-content: space-around;
+  // margin: 0 auto;
+  margin-top: 20px;
+  width: 800px;
+  // border: 1px solid;
+  // text-align: center;
+  border-radius: 15px;
+  padding: 16px;
+  background-color: #fff;
+}
+.articleImg img {
+  width: 200px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.desc {
+  margin-left: 15px;
+  margin-top: 5px;
+  line-height: 25px;
+}
 </style>
