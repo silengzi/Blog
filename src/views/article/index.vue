@@ -7,9 +7,12 @@
         alt=""
       >
       <div class="mask"></div>
-      <div class="articleSort">
-        <div class="sort">春风得意马蹄疾，一日看尽长安花。</div>
-      </div>
+      <el-form inline class="search">
+        <el-form-item>
+          <el-input class="input" type="text" placeholder="请输入内容"></el-input>
+        </el-form-item>
+        <el-button icon="el-icon-search">搜索</el-button>
+      </el-form>
     </div>
     <div class="article-content">
       <div
@@ -67,52 +70,52 @@ export default {
       {
         title: '文章3',
         img: require('@/assets/imgs/article1.jpg'),
-        content: '这是文章1的内容',
+        content: '这是文章3的内容',
         summary: '生活是一堆碎玻璃渣子里找糖。'
       },
       {
         title: '文章4',
         img: require('@/assets/imgs/article2.jpg'),
-        content: '这是文章2的内容',
+        content: '这是文章4的内容',
         summary: '纵有疾风起，人生不言弃。'
 
       },
       {
         title: '文章5',
         img: require('@/assets/imgs/article1.jpg'),
-        content: '这是文章1的内容',
+        content: '这是文章5的内容',
         summary: '生活是一堆碎玻璃渣子里找糖。'
       },
       {
         title: '文章6',
         img: require('@/assets/imgs/article2.jpg'),
-        content: '这是文章2的内容',
+        content: '这是文章6的内容',
         summary: '纵有疾风起，人生不言弃。'
 
       },
       {
         title: '文章7',
         img: require('@/assets/imgs/article1.jpg'),
-        content: '这是文章1的内容',
+        content: '这是文章7的内容',
         summary: '生活是一堆碎玻璃渣子里找糖。'
       },
       {
         title: '文章8',
         img: require('@/assets/imgs/article2.jpg'),
-        content: '这是文章2的内容',
+        content: '这是文章8的内容',
         summary: '纵有疾风起，人生不言弃。'
 
       },
       {
         title: '文章9',
         img: require('@/assets/imgs/article1.jpg'),
-        content: '这是文章1的内容',
+        content: '这是文章9的内容',
         summary: '生活是一堆碎玻璃渣子里找糖。'
       },
       {
         title: '文章10',
         img: require('@/assets/imgs/article2.jpg'),
-        content: '这是文章2的内容',
+        content: '这是文章10的内容',
         summary: '纵有疾风起，人生不言弃。'
 
       },
@@ -123,14 +126,11 @@ export default {
 </script>
 
 <style scoped lang="less">
-.article {
-  // position: relative;
-}
 .article .top-bg {
   position: relative;
-  z-index: -1;
+  // z-index: -1;
   width: 100%;
-  height: 50%;
+  height: 50vh;
   margin-top: -52px;
 }
 .article .top-bg .img {
@@ -149,26 +149,17 @@ export default {
   // z-index: -1;
   position: absolute;
 }
-.article .top-bg .articleSort {
-  width: 100%;
-  // z-index: -1;
-  height: 50vh;
-  // display: flex;
-  // justify-content: space-around;
-  // align-items: center;
-  // margin-top: -52px;
-}
-.article .top-bg .articleSort .sort {
-  // border: 1px solid;
-  width: 400px;
-  height: 50px;
-  font-size: 25px;
-  color: #fff;
+.article .top-bg .search {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: -25px;
-  margin-left: -200px;
+  margin-left: -475px;
+  width: 950px;
+
+  .input {
+    width: 850px;
+  }
+  
 }
 .article-content {
   display: flex;

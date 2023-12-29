@@ -26,7 +26,7 @@ export default {
     position: relative;
     /* border: 1px solid; */
     margin-top: -52px;
-    z-index: -1;
+    /* z-index: -1; */
   }
   .top img {
     position: absolute;

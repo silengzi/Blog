@@ -52,6 +52,8 @@ export default {
 .top {
   background-color: #68656952;
   width: 100%;
+  position: relative;
+  z-index: 999;
 }
 .header {
   // width: 1200px;
@@ -62,7 +64,6 @@ export default {
   align-items: center;
   justify-content: space-around;
 }
-.logo,
 .nav {
   // display: inline-block;
 }
