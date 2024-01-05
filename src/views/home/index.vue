@@ -18,6 +18,24 @@
               src="@/assets/imgs/home2.jpg"
               alt=""
             >
+            <div class="intro">
+              <p class="introTitle">My Blog</p>
+              <p class="introDesc">许下三个愿望，在三个愿望里，靠近你拥抱你和你永不分离，许下三个愿望，我跟灯火耳语，若奇迹会发生，做你的阿拉丁</p>
+            </div>
+            <div class="countList">
+              <div class="articleCount count">
+                <p>文章</p>
+                <p>10</p>
+              </div>
+              <div class="portfolioCount count">
+                <p>作品</p>
+                <p>15</p>
+              </div>
+              <div class="viewCount count">
+                <p>浏览量</p>
+                <p>11</p>
+              </div>
+            </div>
           </div>
           <div class="navCenter">
 
@@ -43,7 +61,7 @@
                   alt=""
                 >
               </div>
-              <div class="articleTweetDesc">
+              <div class="articleTweetDesc desc">
                 <h4 class="articleTweetTitle">{{articleItem.title}}</h4>
                 <div class="articleTweetContent">{{articleItem.content}}</div>
                 <div class="articleTweetSummary">{{articleItem.summary}}</div>
@@ -66,7 +84,7 @@
                   alt=""
                 >
               </div>
-              <div class="portfolioTweetDesc">
+              <div class="portfolioTweetDesc desc">
                 <h4 class="portfolioTweetTitle">{{portfolioItem.title}}</h4>
                 <div class="portfolioTweetContent">{{portfolioItem.content}}</div>
                 <div class="portfolioTweetSummary">{{portfolioItem.summary}}</div>
@@ -75,10 +93,20 @@
           </div>
         </div>
         <div class="right">
-          <img
-            src="@/assets/imgs/home2.jpg"
-            alt=""
-          >
+          <div class="rightTop">
+            <img
+              class="bg"
+              src="@/assets/imgs/home3.jpg"
+              alt=""
+            >
+            <div class="head">
+              <img
+                src="@/assets/imgs/head.jpg"
+                alt=""
+              >
+            </div>
+            <div class="empty"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -167,6 +195,9 @@ export default {
 </script>
 
 <style scoped lang="less">
+.home {
+  background-color: #dcd6d66c;
+}
 .top {
   width: 100%;
   height: 100vh;
@@ -207,49 +238,146 @@ export default {
   font-size: 28px;
 }
 .main {
-  width: 1700px;
+  // width: 1700px;
+  // background-color: #dcd6d66c;
   margin: 20px auto 0;
   .content {
-    position: relative;
+    // position: relative;
+    display: flex;
+    justify-content: space-evenly;
     .nav {
-      position: absolute;
-      top: 20px;
-      left: 100px;
+      // position: absolute;
+      // top: 20px;
+      // left: 100px;
+      text-align: center;
 
       .navTop {
+        width: 257px;
+        height: 350px;
+        // border: 1px solid;
+        border-radius: 10px;
+        background-color: #fff;
         img {
-          width: 300px;
+          width: 255px;
           object-fit: cover;
+          border-radius: 10px 10px 0 0;
+        }
+        .intro {
+          padding: 5px;
+          padding-bottom: 20px;
+          border-bottom: 1px solid #f0e4e4;
+          .introTitle {
+            font-size: 18px;
+            color: #a68dac;
+            margin-bottom: 10px;
+          }
+          .introDesc {
+            font-size: 13px;
+            color: #302f2f;
+          }
+        }
+        .countList {
+          display: flex;
+          justify-content: space-around;
+          margin: 10px;
+          line-height: 30px;
+
+          .count {
+            position: relative;
+            color: #7b7676;
+          }
+          .articleCount::before, .portfolioCount::before {
+            content: "";
+            width: 1px;
+            height: 100%;
+            background: #f0e4e4;
+            display: block;
+            position: absolute;
+            right: -20px;
+          }
         }
       }
     }
     .tweet {
       // width: 600px;
-      border: 1px solid;
+      // border: 1px solid;
       // margin: 0 20px;
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      margin-left: -400px;
+      // position: absolute;
+      // top: 20px;
+      // left: 50%;
+      // margin-left: -400px;
+      // display: flex;
+      // flex-direction: column;
       .title {
-        border-bottom: 1px dotted;
-        margin-bottom: 10px;
+        color: #666;
+        font-size: 18px;
+        border-bottom: 1px dotted #666;
+        margin-bottom: 30px;
+        padding-bottom: 10px;
+        font-weight: bold;
       }
       .tweetImg {
         width: 800px;
-        height: 265px;
+        height: 300px;
         object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #514f4f;
+      }
+      .articleTweet {
+        margin-bottom: 50px;
+      }
+      .articleTweetList,
+      .portfolioTweetList {
+        margin-bottom: 30px;
+        position: relative;
+      }
+      .desc {
+        // border: 1px solid;
+        width: 280px;
+        height: 90px;
+        text-align: center;
+        margin-top: -45px;
+        margin-left: -140px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        color: #fff;
+        line-height: 30px;
+        font-size: 20px;
       }
     }
 
     .right {
-      // width: 100%;
-      position: absolute;
-      top: 20px;
-      right: 100px;
-      img {
-        width: 300px;
-        object-fit: cover;
+      // position: absolute;
+      // top: 20px;
+      // right: 100px;
+      .rightTop {
+        width: 257px;
+        display: flex;
+        flex-direction: column;
+        .bg {
+          width: 255px;
+          height: 160px;
+          object-fit: cover;
+          border-radius: 10px 10px 0 0;
+        }
+
+        .head {
+          text-align: center;
+          background-color: #fff;
+          img {
+            margin-top: -35px;
+            width: 70px;
+            height: 70px;
+            border-radius: 100%;
+            border: 3px solid rgba(249, 246, 246, 0.4);
+          }
+        }
+        .empty {
+          height: 30px;
+          background-color: #fff;
+          border-radius: 0 0 10px 10px;
+        }
       }
     }
   }
