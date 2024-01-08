@@ -13,7 +13,21 @@
     <div class="main">
       <div class="content">
         <div class="nav">
-          <div class="navTop">
+            <div class="navTop">
+              <img
+                class="bg"
+                src="@/assets/imgs/home3.jpg"
+                alt=""
+              >
+              <div class="head">
+                <img
+                  src="@/assets/imgs/head.jpg"
+                  alt=""
+                >
+              </div>
+              <div class="empty"></div>
+            </div>
+          <div class="navCenter">
             <img
               src="@/assets/imgs/home2.jpg"
               alt=""
@@ -37,77 +51,66 @@
               </div>
             </div>
           </div>
-          <div class="navCenter">
-
-          </div>
-          <div class="navFooter">
-
-          </div>
         </div>
         <div class="tweet">
+          <!-- 文章列表 -->
           <div class="articleTweet">
             <div class="articleTitle title">
               <p>文章推荐</p>
+              <span @click="toArticle">MORE >></span>
             </div>
-            <div
-              class="articleTweetList"
-              v-for="(articleItem, index) in articleTweetList"
-              :key="articleItem.id"
-            >
-              <div class="articleTweetImg">
-                <img
-                  class="tweetImg"
-                  :src="articleItem.img"
-                  alt=""
-                >
-              </div>
-              <div class="articleTweetDesc desc">
-                <h4 class="articleTweetTitle">{{articleItem.title}}</h4>
-                <div class="articleTweetContent">{{articleItem.content}}</div>
-                <div class="articleTweetSummary">{{articleItem.summary}}</div>
+            <div class="tweetContent">
+              <div
+                class="articleTweetList"
+                v-for="(articleItem, index) in articleTweetList"
+                :key="articleItem.id"
+                @click="toDetail"
+              >
+                <div class="articleTweetImg">
+                  <img
+                    class="tweetImg"
+                    :src="articleItem.img"
+                    alt=""
+                  >
+                </div>
+                <div class="articleTweetDesc desc">
+                  <h4 class="articleTweetTitle">{{articleItem.title}}</h4>
+                  <div class="articleTweetContent">{{articleItem.content}}</div>
+                  <div class="articleTweetSummary">{{articleItem.summary}}</div>
+                </div>
               </div>
             </div>
           </div>
+          <!-- 作品列表 -->
           <div class="portfolioTweet">
             <div class="portfolioTitle title">
               <p>作品推荐</p>
+              <span @click="toPortfolio">MORE >></span>
             </div>
-            <div
-              class="portfolioTweetList"
-              v-for="(portfolioItem, index) in portfolioTweetList"
-              :key="portfolioItem.id"
-            >
-              <div class="portfolioTweetImg">
-                <img
-                  class="tweetImg"
-                  :src="portfolioItem.img"
-                  alt=""
-                >
-              </div>
-              <div class="portfolioTweetDesc desc">
-                <h4 class="portfolioTweetTitle">{{portfolioItem.title}}</h4>
-                <div class="portfolioTweetContent">{{portfolioItem.content}}</div>
-                <div class="portfolioTweetSummary">{{portfolioItem.summary}}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="right">
-          <div class="rightTop">
-            <img
-              class="bg"
-              src="@/assets/imgs/home3.jpg"
-              alt=""
-            >
-            <div class="head">
-              <img
-                src="@/assets/imgs/head.jpg"
-                alt=""
+            <div class="tweetContent">
+              <div
+                class="portfolioTweetList"
+                v-for="(portfolioItem, index) in portfolioTweetList"
+                :key="portfolioItem.id"
+                @click="toDetail"
               >
+                <div class="portfolioTweetImg">
+                  <img
+                    class="tweetImg"
+                    :src="portfolioItem.img"
+                    alt=""
+                  >
+                </div>
+                <div class="portfolioTweetDesc desc">
+                  <h4 class="portfolioTweetTitle">{{portfolioItem.title}}</h4>
+                  <div class="portfolioTweetContent">{{portfolioItem.content}}</div>
+                  <div class="portfolioTweetSummary">{{portfolioItem.summary}}</div>
+                </div>
             </div>
-            <div class="empty"></div>
+            </div>
           </div>
         </div>
+        
       </div>
     </div>
   </div>
@@ -190,6 +193,23 @@ export default {
           summary: '你的独特我会放在手心护着',
         },
       ]
+  },
+  methods: {
+    toArticle() {
+      this.$router.push({
+        name: 'article'
+      })
+    },
+    toPortfolio() {
+      this.$router.push({
+        name: 'portfolio'
+      })
+    },
+    toDetail() {
+      this.$router.push({
+        name: 'detail'
+      })
+    }
   }
 }
 </script>
@@ -238,13 +258,13 @@ export default {
   font-size: 28px;
 }
 .main {
-  // width: 1700px;
+  width: 1700px;
   // background-color: #dcd6d66c;
   margin: 20px auto 0;
   .content {
     // position: relative;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     .nav {
       // position: absolute;
       // top: 20px;
@@ -252,6 +272,36 @@ export default {
       text-align: center;
 
       .navTop {
+        width: 257px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom:40px;
+        .bg {
+          width: 255px;
+          height: 160px;
+          object-fit: cover;
+          border-radius: 10px 10px 0 0;
+        }
+
+        .head {
+          text-align: center;
+          background-color: #fff;
+          img {
+            margin-top: -35px;
+            width: 70px;
+            height: 70px;
+            border-radius: 100%;
+            border: 3px solid rgba(249, 246, 246, 0.4);
+          }
+        }
+        .empty {
+          height: 30px;
+          background-color: #fff;
+          border-radius: 0 0 10px 10px;
+        }
+      }
+
+      .navCenter {
         width: 257px;
         height: 350px;
         // border: 1px solid;
@@ -299,9 +349,9 @@ export default {
       }
     }
     .tweet {
-      // width: 600px;
+      width: 1200px;
       // border: 1px solid;
-      // margin: 0 20px;
+      margin-left: 50px;
       // position: absolute;
       // top: 20px;
       // left: 50%;
@@ -315,71 +365,53 @@ export default {
         margin-bottom: 30px;
         padding-bottom: 10px;
         font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+
+        span {
+          cursor: pointer;
+        }
       }
       .tweetImg {
-        width: 800px;
-        height: 300px;
+        width: 375px;
+        height: 200px;
         object-fit: cover;
-        border-radius: 10px;
-        box-shadow: 0 0 10px #514f4f;
+        border-radius: 10px 10px 0 0;
+        // box-shadow: 0 0 10px #514f4f;
+      }
+      .tweetContent {
+        display: flex;
+        flex-wrap: wrap;
       }
       .articleTweet {
-        margin-bottom: 50px;
+        margin-bottom: 20px;
+
       }
       .articleTweetList,
       .portfolioTweetList {
-        margin-bottom: 30px;
-        position: relative;
+        // margin-bottom: 30px;
+        // position: relative;
+        margin: 0 10px 30px 10px;
+        // border: 1px solid;
+        background-color: #fff;
+        box-shadow: 0 0 10px #514f4f;
+        border-radius: 10px;
+        cursor: pointer;
       }
       .desc {
-        // border: 1px solid;
         width: 280px;
         height: 90px;
-        text-align: center;
-        margin-top: -45px;
-        margin-left: -140px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        color: #fff;
-        line-height: 30px;
-        font-size: 20px;
+        // text-align: center;
+        // margin-top: -45px;
+        margin-left: 15px;
+        // position: absolute;
+        // top: 50%;
+        // left: 50%;
+        // color: #fff;
+        line-height: 25px;
       }
     }
 
-    .right {
-      // position: absolute;
-      // top: 20px;
-      // right: 100px;
-      .rightTop {
-        width: 257px;
-        display: flex;
-        flex-direction: column;
-        .bg {
-          width: 255px;
-          height: 160px;
-          object-fit: cover;
-          border-radius: 10px 10px 0 0;
-        }
-
-        .head {
-          text-align: center;
-          background-color: #fff;
-          img {
-            margin-top: -35px;
-            width: 70px;
-            height: 70px;
-            border-radius: 100%;
-            border: 3px solid rgba(249, 246, 246, 0.4);
-          }
-        }
-        .empty {
-          height: 30px;
-          background-color: #fff;
-          border-radius: 0 0 10px 10px;
-        }
-      }
-    }
   }
 }
 </style>

@@ -181,6 +181,7 @@ export default {
   border-radius: 15px;
   padding: 16px;
   background-color: #fff;
+  cursor: pointer;
 }
 .articleImg img {
   width: 200px;

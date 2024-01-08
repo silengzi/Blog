@@ -15,6 +15,7 @@
           class="portfolioList"
           v-for="(item, index) in portfolioList"
           :key='item.id'
+          @click="toDetail"
         >
           <div class="portfolioImage">
             <img
@@ -43,7 +44,11 @@ export default {
     };
   },
   methods: {
-
+    toDetail() {
+      this.$router.push({
+        name: 'detail'
+      })
+    }
   },
   mounted() {
     this.portfolioList = [
@@ -191,6 +196,7 @@ export default {
       border-radius: 8px;
       padding: 10px;
       border: 2px solid #645f5f6c;
+      cursor: pointer;
 
       .portfolioDesc {
         line-height: 30px;
