@@ -11,7 +11,7 @@
         <el-form-item>
           <el-input class="input" type="text" placeholder="请输入内容"></el-input>
         </el-form-item>
-        <el-button icon="el-icon-search">搜索</el-button>
+        <el-button icon="el-icon-search" @click="getData">搜索</el-button>
       </el-form>
     </div>
     <div class="article-content">
@@ -37,7 +37,6 @@
 </template>
 
 <script>
-
 export default {
   name: '',
   data() {
@@ -50,6 +49,11 @@ export default {
       this.$router.push({
         name: 'detail'
       })
+    },
+    getData() {
+      let count = this.$store.state.count
+      console.log(count)
+      this.$store.dispatch("getAllArticle")
     }
   },
   mounted() {
