@@ -11,13 +11,13 @@
         <el-form-item>
           <el-input class="input" type="text" placeholder="请输入内容"></el-input>
         </el-form-item>
-        <el-button icon="el-icon-search" @click="getData">搜索</el-button>
+        <el-button icon="el-icon-search">搜索</el-button>
       </el-form>
     </div>
     <div class="article-content">
       <div
         class="articleList"
-        v-for="(item, index) in articleList"
+        v-for="(item, index) in $store.state.allArticle"
         :key="item.id"
         @click="detail"
       >
@@ -37,11 +37,12 @@
 </template>
 
 <script>
+// import { reqAllArticle } from '@/api';
 export default {
   name: '',
   data() {
     return {
-      articleList: [],
+      // articleList: [],
     };
   },
   methods: {
@@ -51,80 +52,85 @@ export default {
       })
     },
     getData() {
-      let count = this.$store.state.count
-      console.log(count)
       this.$store.dispatch("getAllArticle")
-    }
+    },
+    // async getData() {
+    //   let result = await reqAllArticle()
+    //   if(result.code == 200) {
+    //     this.articleList = result.data
+    //   }
+    // }
   },
   mounted() {
-    this.articleList = [
-      {
-        title: '文章1',
-        img: require('@/assets/imgs/article1.jpg'),
-        content: '这是文章1的内容',
-        summary: '生活是一堆碎玻璃渣子里找糖。'
-      },
-      {
-        title: '文章2',
-        img: require('@/assets/imgs/article2.jpg'),
-        content: '这是文章2的内容',
-        summary: '纵有疾风起，人生不言弃。'
-
-      },
-      {
-        title: '文章3',
-        img: require('@/assets/imgs/article1.jpg'),
-        content: '这是文章3的内容',
-        summary: '生活是一堆碎玻璃渣子里找糖。'
-      },
-      {
-        title: '文章4',
-        img: require('@/assets/imgs/article2.jpg'),
-        content: '这是文章4的内容',
-        summary: '纵有疾风起，人生不言弃。'
-
-      },
-      {
-        title: '文章5',
-        img: require('@/assets/imgs/article1.jpg'),
-        content: '这是文章5的内容',
-        summary: '生活是一堆碎玻璃渣子里找糖。'
-      },
-      {
-        title: '文章6',
-        img: require('@/assets/imgs/article2.jpg'),
-        content: '这是文章6的内容',
-        summary: '纵有疾风起，人生不言弃。'
-
-      },
-      {
-        title: '文章7',
-        img: require('@/assets/imgs/article1.jpg'),
-        content: '这是文章7的内容',
-        summary: '生活是一堆碎玻璃渣子里找糖。'
-      },
-      {
-        title: '文章8',
-        img: require('@/assets/imgs/article2.jpg'),
-        content: '这是文章8的内容',
-        summary: '纵有疾风起，人生不言弃。'
-
-      },
-      {
-        title: '文章9',
-        img: require('@/assets/imgs/article1.jpg'),
-        content: '这是文章9的内容',
-        summary: '生活是一堆碎玻璃渣子里找糖。'
-      },
-      {
-        title: '文章10',
-        img: require('@/assets/imgs/article2.jpg'),
-        content: '这是文章10的内容',
-        summary: '纵有疾风起，人生不言弃。'
-
-      },
-    ]
+    this.getData()
     // console.log(this.articleList)
+    // this.articleList = [
+    //   {
+    //     title: '文章1',
+    //     img: require('@/assets/imgs/article1.jpg'),
+    //     content: '这是文章1的内容',
+    //     summary: '生活是一堆碎玻璃渣子里找糖。'
+    //   },
+    //   {
+    //     title: '文章2',
+    //     img: require('@/assets/imgs/article2.jpg'),
+    //     content: '这是文章2的内容',
+    //     summary: '纵有疾风起，人生不言弃。'
+
+    //   },
+    //   {
+    //     title: '文章3',
+    //     img: require('@/assets/imgs/article1.jpg'),
+    //     content: '这是文章3的内容',
+    //     summary: '生活是一堆碎玻璃渣子里找糖。'
+    //   },
+    //   {
+    //     title: '文章4',
+    //     img: require('@/assets/imgs/article2.jpg'),
+    //     content: '这是文章4的内容',
+    //     summary: '纵有疾风起，人生不言弃。'
+
+    //   },
+    //   {
+    //     title: '文章5',
+    //     img: require('@/assets/imgs/article1.jpg'),
+    //     content: '这是文章5的内容',
+    //     summary: '生活是一堆碎玻璃渣子里找糖。'
+    //   },
+    //   {
+    //     title: '文章6',
+    //     img: require('@/assets/imgs/article2.jpg'),
+    //     content: '这是文章6的内容',
+    //     summary: '纵有疾风起，人生不言弃。'
+
+    //   },
+    //   {
+    //     title: '文章7',
+    //     img: require('@/assets/imgs/article1.jpg'),
+    //     content: '这是文章7的内容',
+    //     summary: '生活是一堆碎玻璃渣子里找糖。'
+    //   },
+    //   {
+    //     title: '文章8',
+    //     img: require('@/assets/imgs/article2.jpg'),
+    //     content: '这是文章8的内容',
+    //     summary: '纵有疾风起，人生不言弃。'
+
+    //   },
+    //   {
+    //     title: '文章9',
+    //     img: require('@/assets/imgs/article1.jpg'),
+    //     content: '这是文章9的内容',
+    //     summary: '生活是一堆碎玻璃渣子里找糖。'
+    //   },
+    //   {
+    //     title: '文章10',
+    //     img: require('@/assets/imgs/article2.jpg'),
+    //     content: '这是文章10的内容',
+    //     summary: '纵有疾风起，人生不言弃。'
+
+    //   },
+    // ]
   }
 };
 </script>

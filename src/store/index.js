@@ -8,25 +8,26 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     allArticle: [],
-    count: 10
-  },
-  getters: {
   },
   mutations: {
     GETALLARTICLE(state, article){
       state.allArticle = article
+      // console.log(state.allArticle)
     }
   },
   actions: {
     async getAllArticle({commit, state}) {
       let result = await reqAllArticle()
-      console.log('result')
-      if(result.code == 200) {
+      // console.log(result)
+      if(result.status == 200) {
         commit('GETALLARTICLE', result.data)
       }
     }
+  },
+  getters: {
   },
   modules: {
     
   }
 })
+
