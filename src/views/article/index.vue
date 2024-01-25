@@ -19,7 +19,7 @@
         class="articleList"
         v-for="(item, index) in $store.state.allArticle"
         :key="item.id"
-        @click="detail"
+        @click="goToDetail(item.id)"
       >
         <div class="articleImg"><img
             :src="item.img"
@@ -46,15 +46,16 @@ export default {
     };
   },
   methods: {
-    detail() {
+    goToDetail(id) {
       this.$router.push({
-        name: 'detail'
+        name: 'detail',
+        params: {id}
       })
     },
-    getData() {
+    getArticleData() {
       this.$store.dispatch("getAllArticle")
     },
-    // async getData() {
+    // async getArticleData() {
     //   let result = await reqAllArticle()
     //   if(result.code == 200) {
     //     this.articleList = result.data
@@ -62,7 +63,7 @@ export default {
     // }
   },
   mounted() {
-    this.getData()
+    this.getArticleData()
     // console.log(this.articleList)
     // this.articleList = [
     //   {
