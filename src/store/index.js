@@ -19,8 +19,9 @@ export default new Vuex.Store({
     async getAllArticle({commit, state}) {
       let result = await reqAllArticle()
       // console.log(result)
-      if(result.status == 200) {
-        commit('GETALLARTICLE', result.data)
+      let res = result.data
+      if(res.status == 1) {
+        commit('GETALLARTICLE', res.data)
       }
     }
   },
