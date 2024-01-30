@@ -19,7 +19,7 @@
         class="articleList"
         v-for="(item, index) in $store.state.allArticle"
         :key="item.id"
-        @click="goToDetail(item.id)"
+        @click="goToDetail(item.userName, item.id)"
       >
         <div class="articleImg"><img
             :src="item.img"
@@ -46,14 +46,14 @@ export default {
     };
   },
   methods: {
-    goToDetail(id) {
+    goToDetail(userName, id) {
       this.$router.push({
         name: 'detail',
-        params: {id}
+        query: {userName, id}
       })
     },
     getArticleData() {
-      this.$store.dispatch("getAllArticle")
+      this.$store.dispatch("getAllArticle", this.$route)
     },
     // async getArticleData() {
     //   let result = await reqAllArticle()

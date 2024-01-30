@@ -102,17 +102,21 @@ export default {
   },
   // 用id调接口
   async created() {
-    const id = this.$route.params.id
+    // const id = this.$route.query.id
     // const response = await fetch(`/api/article/getArticleById/${id}`)
     // const data = await response.json()
-    const result = await reqArticleById(id)
+    // let userName = this.$route.query.userName
+    let data = {
+      id: this.$route.query.id,
+      userName: this.$route.query.userName,
+    }
+    const result = await reqArticleById(data)
     // console.log(result)
     let res = result.data
     if(res.status == 1) {
         let title = res.data.title
         let content = res.data.content
-        this.text = `# ${title}
-    ${content}`
+        this.text = `# ${title}\n${content}`
     }
   }
 };

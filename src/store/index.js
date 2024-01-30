@@ -16,10 +16,13 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    async getAllArticle({commit, state}) {
-      let result = await reqAllArticle()
-      // console.log(result)
+    async getAllArticle({commit, state}, route) {
+      let data = {
+        userName: route.query.userName
+      }
+      let result = await reqAllArticle(data)
       let res = result.data
+      console.log(res)
       if(res.status == 1) {
         commit('GETALLARTICLE', res.data)
       }
