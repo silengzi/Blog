@@ -110,8 +110,8 @@ export default {
       id: this.$route.query.id,
       userName: this.$route.query.userName,
     }
+    // console.log(data)
     const result = await reqArticleById(data)
-    // console.log(result)
     let res = result.data
     if(res.status == 1) {
         let title = res.data.title

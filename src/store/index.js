@@ -22,7 +22,7 @@ export default new Vuex.Store({
       }
       let result = await reqAllArticle(data)
       let res = result.data
-      console.log(res)
+      // console.log(res)
       if(res.status == 1) {
         commit('GETALLARTICLE', res.data)
       }

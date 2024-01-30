@@ -5,7 +5,7 @@ export const reqAllArticle = (data) => request({
     params: data
 });
 export const reqArticleById = (data) => request({
-     url: '`/article/getArticleById?userName=${data.userName}&id=${data.id}`', 
+     url: '/article/getArticleById', 
      method: 'get',
      params: data
 });
