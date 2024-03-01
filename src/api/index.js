@@ -8,4 +8,4 @@ export const reqArticleById = (data) => request({
      url: '/article/getArticleById', 
      method: 'get',
      params: data
-});
+    });

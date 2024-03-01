@@ -17,6 +17,7 @@ export default new Vuex.Store({
   },
   actions: {
     async getAllArticle({commit, state}, route) {
+      
       let data = {
         userName: route.query.userName
       }
